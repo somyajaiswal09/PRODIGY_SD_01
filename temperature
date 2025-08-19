@@ -1,0 +1,79 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+// Function prototypes
+float celsius_to_fahrenheit(float c);
+float celsius_to_kelvin(float c);
+float fahrenheit_to_celsius(float f);
+float fahrenheit_to_kelvin(float f);
+float kelvin_to_celsius(float k);
+float kelvin_to_fahrenheit(float k);
+
+// Converts input string to lowercase
+void to_lowercase(char* str) {
+    for (int i = 0; str[i]; i++) {
+        str[i] = tolower(str[i]);
+    }
+}
+
+int main() {
+    float value;
+    char unit[20];
+
+    printf("Enter the temperature value: ");
+    if (scanf("%f", &value) != 1) {
+        printf("\nInvalid temperature input.\n");
+        return 1;
+    }
+
+    printf("Enter the unit of measurement (Celsius, Fahrenheit, or Kelvin): ");
+    scanf("%s", unit);
+    to_lowercase(unit);
+
+    if (strcmp(unit, "celsius") == 0 || strcmp(unit, "c") == 0) {
+        float f = celsius_to_fahrenheit(value);
+        float k = celsius_to_kelvin(value);
+        printf("\n%.2f °C is:\n%.2f °F\n%.2f K\n", value, f, k);
+
+    } else if (strcmp(unit, "fahrenheit") == 0 || strcmp(unit, "f") == 0) {
+        float c = fahrenheit_to_celsius(value);
+        float k = fahrenheit_to_kelvin(value);
+        printf("\n%.2f °F is:\n%.2f °C\n%.2f K\n", value, c, k);
+
+    } else if (strcmp(unit, "kelvin") == 0 || strcmp(unit, "k") == 0) {
+        float c = kelvin_to_celsius(value);
+        float f = kelvin_to_fahrenheit(value);
+        printf("\n%.2f K is:\n%.2f °C\n%.2f °F\n", value, c, f);
+
+    } else {
+        printf("\nInvalid unit. Please use Celsius (C), Fahrenheit (F), or Kelvin (K).\n");
+    }
+
+    return 0;
+}
+
+// Conversion functions
+float celsius_to_fahrenheit(float c) {
+    return (c * 9.0 / 5.0) + 32;
+}
+
+float celsius_to_kelvin(float c) {
+    return c + 273.15;
+}
+
+float fahrenheit_to_celsius(float f) {
+    return (f - 32) * 5.0 / 9.0;
+}
+
+float fahrenheit_to_kelvin(float f) {
+    return (f - 32) * 5.0 / 9.0 + 273.15;
+}
+
+float kelvin_to_celsius(float k) {
+    return k - 273.15;
+}
+
+float kelvin_to_fahrenheit(float k) {
+    return (k - 273.15) * 9.0 / 5.0 + 32;
+}

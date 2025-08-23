@@ -2,7 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 
-// Function prototypes
+
 float celsius_to_fahrenheit(float c);
 float celsius_to_kelvin(float c);
 float fahrenheit_to_celsius(float f);

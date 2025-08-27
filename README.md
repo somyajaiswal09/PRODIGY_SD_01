@@ -64,59 +64,8 @@
 
    * Use of floating-point data types (`float` or `double`) for precision in temperature values and conversions.
 
-### Sample Code:
 
-```c
-#include <stdio.h>
 
-void convertTemperature(float temp, int scale) {
-    float celsius, fahrenheit, kelvin;
-    
-    if (scale == 1) {  // Celsius
-        celsius = temp;
-        fahrenheit = (celsius * 9/5) + 32;
-        kelvin = celsius + 273.15;
-    }
-    else if (scale == 2) {  // Fahrenheit
-        fahrenheit = temp;
-        celsius = (fahrenheit - 32) * 5/9;
-        kelvin = (fahrenheit - 32) * 5/9 + 273.15;
-    }
-    else if (scale == 3) {  // Kelvin
-        kelvin = temp;
-        celsius = kelvin - 273.15;
-        fahrenheit = (kelvin - 273.15) * 9/5 + 32;
-    }
-    
-    // Display the conversions
-    printf("Converted Temperatures:\n");
-    printf("Celsius: %.2f\n", celsius);
-    printf("Fahrenheit: %.2f\n", fahrenheit);
-    printf("Kelvin: %.2f\n", kelvin);
-}
-
-int main() {
-    int scale;
-    float temperature;
-
-    printf("Temperature Converter\n");
-    printf("Select input scale (1: Celsius, 2: Fahrenheit, 3: Kelvin): ");
-    scanf("%d", &scale);
-
-    printf("Enter the temperature value: ");
-    scanf("%f", &temperature);
-
-    // Validate scale input
-    if (scale < 1 || scale > 3) {
-        printf("Invalid scale selection! Please restart the program.\n");
-        return 1;
-    }
-
-    // Perform conversion and display results
-    convertTemperature(temperature, scale);
-
-    return 0;
-}
 ```
 
 ### Explanation of the Code:

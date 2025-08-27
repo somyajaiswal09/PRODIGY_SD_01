@@ -68,27 +68,3 @@
 
 ```
 
-### Explanation of the Code:
-
-1. **User Input**:
-
-   * The user selects the scale (Celsius, Fahrenheit, or Kelvin) and inputs the temperature value.
-
-2. **Conversion Logic**:
-
-   * The `convertTemperature()` function handles the conversion based on the selected scale.
-   * If Celsius is selected, it converts the input to Fahrenheit and Kelvin.
-   * If Fahrenheit is selected, it converts the input to Celsius and Kelvin.
-   * If Kelvin is selected, it converts the input to Celsius and Fahrenheit.
-
-3. **Display Results**:
-
-   * The program prints the converted temperatures in all the scales.
-
-4. **Input Validation**:
-
-   * The program checks that the scale is valid (1, 2, or 3).
-
----
-
-
